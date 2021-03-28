@@ -1,0 +1,58 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.25); /* Black w/ opacity */
+  }
+
+/* Modal Content */
+.game-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 20px;
+}
+
+/* Menu buttons */
+#menu-btns {
+    padding: 10px;
+}
+
+#menu-btns > button:hover {
+    cursor: grab;
+    background: rgba(0, 0, 0, 0.76)
+}
+
+.modal-btn {
+    background:grey;
+    color: white;
+    border-radius: 4px;
+    padding:10px;
+    text-decoration: none;
+}
+
+h2 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding: 10px;
+}
+
+/* game */
+#game {
+    padding: none;
+}
+
+#game-container {
+    border: 1px solid black;
+    position: absolute;
+    background-image: url('background.png');
+    background-size: cover;
+}
