@@ -1,0 +1,286 @@
+*{
+    font-family: Verdana
+}
+
+body {
+    animation: rattle 0.2s;
+    animation-delay: 1s;
+}
+
+@keyframes rattle
+{
+  0% { margin-top: 0; margin-left: 0; }
+  10% { margin-top: -5px; margin-left: 0; }
+  20% { margin-top: 0; margin-left: -5px; }
+  30% { margin-top: 5px; margin-left: 0; }
+  40% { margin-top: 0; margin-left: 5px; }
+  50% { margin-top: -2px; margin-left: 0; }
+  60% { margin-top: 0; margin-left: -2px; }
+  70% { margin-top: 2px; margin-left: 0; }
+  80% { margin-top: 0; margin-left: 2px; }
+  90% { margin-top: -1px; margin-left: 0; }
+  100% { margin-top: 0; margin-left: 0; }
+}
+
+
+#container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#menu {
+    text-align: center;
+    display: inline-block;    
+}
+
+#wel {
+    position: relative;
+    top: 100px;
+    font-size: 18px;
+}
+
+#menu h1 {
+    font-size: 54px;
+    padding-top: 50px;
+    float: left;
+}
+
+#header {
+    padding-bottom: 50px;
+}
+
+.slam {
+    float: right;
+    animation: slam 1s;
+    animation-timing-function: ease-in;
+    margin-left: 20px;
+}
+
+@keyframes slam
+{
+  0%
+  {
+    transform: scale(5, 5);
+    opacity: 0;
+  }
+  
+  40%
+  {
+    opacity: 0;
+  }
+  
+  100%
+  {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+
+
+#select {
+    display: block;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    list-style: none;
+}
+
+.riv {
+    margin: 0 0 5rem 0;
+    font-size: 24px;
+}
+
+.riv:hover {
+    cursor: pointer;
+    color:rgba(0, 0, 0, 0.516)
+}
+
+#joinriv {
+    opacity: 0;
+    animation: in 2s forwards;
+    animation-delay: 1.5s;
+}
+
+#charactersriv {
+    opacity: 0;
+    animation: in 2s forwards;
+    animation-delay: 2s;
+}
+
+#shopriv {
+    opacity: 0;
+    animation: in 2s forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes in {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+#tl {
+    padding: 10px;
+    position: absolute;
+    left: 10px;
+    display: inline-block;
+}
+
+.sdt:hover {
+    cursor: pointer;
+}
+
+.sdt:hover > p {
+    transform: scale(1.1);
+}
+
+.sdt:hover > i {
+    transform: scale(1.5);
+    animation: shake 0.3s forwards;
+}
+
+#sout:hover {
+    color:rgba(0, 0, 0, 0.516)
+}
+
+#signed-in {
+    font-size: 16px;
+}
+
+.sidebartxt {
+    padding: 5px;
+    font-size: 12px;
+}
+
+#status {
+    font-weight: bold;
+}
+
+#tl hr {
+    color: rgba(0, 0, 0, 0.616);
+}
+
+@keyframes shake {
+    from {
+        transform: translateX(5px) scale(1.5);
+    }
+    25% {
+        transform: translateX(-5px) scale(1.5);
+    }
+    50% {
+        transform: translateX(5px) scale(1.5);
+    }
+    75% {
+        transform: translateX(-5px) scale(1.5);
+    }
+    to {
+        transform: translateX(0px) scale(1.5);
+    }
+}
+
+#volume {
+    position: absolute;
+    top: 95%;
+    left: 96%;
+}
+
+#volume:hover {
+    transform: scale(1.5);
+    animation: shake 0.3s forwards;
+    cursor: pointer;
+}
+
+/* sign in form*/
+
+#userarea {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 3;
+    background: white;
+}
+
+#signuptxt {
+    font-size: 12px;
+}
+
+#signup {
+    font-size: 12px;
+    text-decoration: none;
+    color: blue;
+}
+
+#signup:hover {
+    text-decoration: underline;
+}
+
+#soin, #back {
+    margin-top: 5px;
+    background: white;
+}
+
+#soin {
+    margin-top: 10px;
+}
+
+#soin:hover, #back:hover {
+    cursor: pointer;
+    background: lightslategray;
+    color: white;
+}
+
+#remember {
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+#rem {
+    height: 12px;
+    width: 12px;
+}
+
+#rem:hover {
+    cursor: pointer;
+}
+
+
+/* transition classes */
+.topin {
+    animation: topin 2s forwards;
+}
+
+@keyframes topin  {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 0%;
+    }
+}
+
+.topout {
+    animation: topout 2s forwards;
+}
+
+@keyframes topout {
+    from {
+        top: 0%;
+    }
+    to {
+        top: -100%;
+    }
+}

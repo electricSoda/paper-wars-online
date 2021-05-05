@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Paper Wars Online</title>
+        <meta name="description" content="Paper wars online is a free to play, competitive, creative, and most of all, fun to play RPG game. Team up with friends to battle your way through quests and duels!">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="mainpg.css">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+
+        <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id='userarea'>
+            <form onsubmit='return false;' id='signin'>
+                <label for='username'>Username</label>
+                <br>
+                <input type='text' id='username'>
+                <br>
+                <label for='password'>Password</label>
+                <br>
+                <input type='password' id='passworduser'>
+                <br>
+                <div id='remember'>
+                    <input type="checkbox" id="rem">
+                    <a>Remember me</a>
+                </div>
+                <br>
+                <p id='statusform'></p>
+                <br>
+                <button id='soin' onclick='submitted()'>Sign In</button>
+                <br>
+                <p id='signuptxt'>Don't have an account? <a href='#' id='signup'>Sign up.</a></p>
+                <hr>
+            </form>
+            <button id='back'>Back</button>
+        </div>
+
+        <div id='container'>
+            <div id='tl'>
+                <div class='sdt' id='user'><i class="fas fa-user fa-2x" id='signin'></i><p class='sidebartxt' id='status'>Sign in</p></div>
+                <hr>
+                <div class='sdt' id='friends'><i class="fas fa-users fa-2x"></i><p class='sidebartxt'>Friends</p></div>
+                <hr>
+                <div class='sdt' id='settings'><i class="fas fa-cog fa-2x"></i><p class='sidebartxt'>Settings</p></div>
+                <hr>
+                <div class='sdt' id='info'><i class="fas fa-info-circle fa-2x"></i><p class='sidebartxt'>Information</p></div>
+            </div>
+            <div id='menu'>
+                <p id='wel'>Welcome to</p>
+                <h1 id='header'>Paper Wars<a> </a><h1 class='slam'> Online</h1></h1>
+                <ul id='select'>
+                    <li>
+                        <div id='joinriv' class='riv'><a id='join'>Join main lobby</a></div>
+                    </li>
+                    <li>
+                        <div id='charactersriv' class='riv'><a id='characters'>Characters</a></div>
+                    </li>
+                    <li>
+                        <div id='shopriv' class='riv'><a id='shop'>Shop</a></div>
+                    </li>                    
+                </ul>
+            </div>
+
+            <i class="fas fa-volume-up" id='volume'></i>
+        </div>
+        
+        <script src="mainpg.js" async></script>
+    </body>
+</html>
