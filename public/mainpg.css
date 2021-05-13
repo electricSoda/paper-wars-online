@@ -131,6 +131,53 @@ body {
     }
 }
 
+/* friendslist */
+#friendslist {
+    display: none;
+    background: rgba(100,100,100,0.9);
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    color: white;
+    height: 75%;
+    overflow: auto;
+}
+
+#friendslist p{
+    border-style: solid;
+    border-width: 0px 0px 0px 10px;
+    border-color: rgb(1, 215, 253);
+    padding: 20px;
+}
+
+#friendslist p:hover {
+    cursor: pointer;
+}
+
+#close {
+    font-size: 40px;
+}
+
+#close:hover {
+    cursor: pointer;
+    color: lightgrey
+}
+
+.flistin {
+    animation: flistin 1s forwards;
+}
+
+@keyframes flistin {
+    from {
+        transform: translateY(-100px)
+    }
+    to {
+        transform: translateY(0px)
+    }
+}
+
+
 #tl {
     padding: 10px;
     position: absolute;

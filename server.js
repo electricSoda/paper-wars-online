@@ -1,3 +1,6 @@
+//chalk for serverside console visuals
+const chalk = require('chalk');
+
 //initiallizing express and socket server
 const express = require('express');
 const app = express();
@@ -18,6 +21,10 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/');
 });
 
+app.use(function(req, res, next) {
+  res.status(404).sendFile('404.html', {root: __dirname });
+});
+
 //clients dictionary
 clients = [];
 
@@ -27,7 +34,7 @@ io.on("connection", (socket) => {
 
     //wait for the socket to send back a packet of their user information (WIP)
     socket.on('connected-data', function(data) {
-        console.log(`User logged on with:`)
+        console.log("\x1b[36m","\nUser logged ON with:")
         console.log(`   Username: ${data.name}`);
         console.log(`   Socket-Id: ${sessionID}\n`);
         var user = {'Username': data.name, 'Id': sessionID}
@@ -38,7 +45,7 @@ io.on("connection", (socket) => {
       for (let i = 0; i<clients.length; i++) {
         var checkC = clients[i]
         if (checkC['Id'] == sessionID) {
-          console.log('User logged off with:');
+          console.log("\x1b[31m", 'User logged OFF with:');
           console.log(`   Username: ${checkC['Username']}`)
           console.log(`   Socket-Id: ${checkC['Id']}`)
           clients.splice(i, 1)

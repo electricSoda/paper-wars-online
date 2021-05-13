@@ -1,0 +1,9 @@
+body {
+    overflow: hidden;
+}
+
+h {
+    position: absolute;
+    z-index: 2;
+    font-family: Verdana;
+}

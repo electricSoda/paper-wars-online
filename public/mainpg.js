@@ -102,37 +102,53 @@ shop.onmouseout = function () {
     shop.innerHTML = 'Shop';
 }
 
+//check if signed in
+let signed = false;
+
+
 join.onclick = function() {
-    join.innerHTML = '--------------';
-    if (sound) {
-        var audio = new Audio('select.wav');
-        audio.play();
+    if (signed) {
+        join.innerHTML = '--------------';
+        if (sound) {
+            var audio = new Audio('select.wav');
+            audio.play();
+        }
+        setTimeout(function () {
+            window.location.href = "../misc/loader/loader.html?redirect=lobby";
+        }, 250)
+    } else {
+        alert('You are not signed in!')
     }
-    setTimeout(function () {
-        window.location.href = "../misc/loader/loader.html?redirect=lobby";
-    }, 250)
 }
 
 characters.onclick = function() {
-    characters.innerHTML = '----------';
-    if (sound) {
-        var audio = new Audio('select.wav');
-        audio.play();
+    if (signed){
+        characters.innerHTML = '----------';
+        if (sound) {
+            var audio = new Audio('select.wav');
+            audio.play();
+        }
+        setTimeout(function () {
+            window.location.href = "../misc/loader/loader.html?redirect=characters";
+        }, 250)
+    } else {
+        alert('You are not signed in!')
     }
-    setTimeout(function () {
-        window.location.href = "../misc/loader/loader.html?redirect=characters";
-    }, 250)
 }
 
 shop.onclick = function() {
-    shop.innerHTML = '----';
-    if (sound) {
-        var audio = new Audio('select.wav');
-        audio.play();
+    if (signed) {
+        shop.innerHTML = '----';
+        if (sound) {
+            var audio = new Audio('select.wav');
+            audio.play();
+        }
+        setTimeout(function () {
+            window.location.href = "../misc/loader/loader.html?redirect=shop";
+        }, 250)
+    } else {
+        alert('You are not signed in!')
     }
-    setTimeout(function () {
-        window.location.href = "../misc/loader/loader.html?redirect=shop";
-    }, 250)
 }
 
 
@@ -146,7 +162,7 @@ document.getElementById('info').addEventListener('click', function () {
     }
     setTimeout(function () {
         window.location.href = "../misc/loader/loader.html?redirect=information";
-    }, 250)
+    }, 500)
 });
 
 document.getElementById('user').addEventListener('click', function () {
@@ -182,22 +198,66 @@ document.getElementById('user').addEventListener('click', function () {
 });
 
 document.getElementById('settings').addEventListener('click', function() {
-    if (sound) {
-        var audio = new Audio('hover.wav');
-        audio.play();
+    if (signed) {
+        if (sound) {
+            var audio = new Audio('hover.wav');
+            audio.play();
+        }
+    } else {
+        alert("You are not signed in!")
     }
 });
 
+//toggle friend list first
+document.getElementById('friendslist').classList.toggle('flistin')
+
 document.getElementById('friends').addEventListener('click', function() {
+    if (signed){
+        if (sound) {
+            var audio = new Audio('hover.wav');
+            audio.play();
+        }
+        var flist = document.getElementById('friendslist');
+        if (flist.style.display === "none") {
+            flist.style.display = "block";
+        } else {
+            flist.style.display = "none";
+        }
+        flist.classList.toggle('flistin')
+    } else {
+        alert("You are not signed in!")
+    }
+
+})
+
+document.getElementById('close').addEventListener('click', function() {
     if (sound) {
         var audio = new Audio('hover.wav');
         audio.play();
     }
+    var flist = document.getElementById('friendslist');
+    if (flist.style.display === "none") {
+        flist.style.display = "block";
+    } else {
+        flist.style.display = "none";
+    }
+    flist.classList.toggle('flistin')
 })
 
 
 //socket
 function joinedsite(bol, name, pass) {
+    //enable friendslist
+    var flist = document.getElementById('friendslist');
+    if (flist.style.display === "none") {
+        flist.style.display = "block";
+    } else {
+        flist.style.display = "none";
+    }
+    flist.classList.toggle('flistin')
+
+    //-------------\\
+
     document.getElementById('status').innerHTML = `<a id='signed-in'>Signed in as ${name}</a><br><p id='sout'>Sign Out</p>`;
     document.getElementById('sout').addEventListener('click', function(event) {
         event.stopPropagation()
@@ -229,6 +289,8 @@ function joinedsite(bol, name, pass) {
     } else {
         alert('not rememberd lol');
     }
+
+    signed = true;
 
 
     //server disconnect
